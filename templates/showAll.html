@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Show</title>
+    <link rel="shortcut icon" href="{{url_for('static',filename='favicon.ico.jpg')}}">
+</head>
+<body>
+    <h1>DATA</h1>
+   <h3>
+       {% for it in x %}
+       mail : 
+       {{it[0]}}
+       pass : 
+       {{it[1]}}
+       name : 
+       {{it[2]}}
+        <br>
+
+       {% endfor %}
+       
+       
+       
+   </h3>
+</body>
+</html>

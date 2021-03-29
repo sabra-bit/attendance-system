@@ -1,0 +1,184 @@
+
+<html>
+    <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+            body {
+            background-color: #F3EBF6;
+            font-family: 'Ubuntu', sans-serif;
+        }
+        
+        .main {
+            background-color: #FFFFFF;
+            min-width: 100px;
+            min-height: 400px;
+            margin: 7em auto;
+            border-radius: 1.5em;
+            box-shadow: 0px 11px 35px 2px rgba(0, 0, 0, 0.14);
+        }
+        
+        .sign {
+            padding-top: 40px;
+            color: #8C55AA;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: bold;
+            font-size: 23px;
+        }
+        
+        .un {
+        width: 76%;
+        color: rgb(38, 50, 56);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 1px;
+        background: rgba(136, 126, 126, 0.04);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        box-sizing: border-box;
+        border: 2px solid rgba(0, 0, 0, 0.02);
+        margin-bottom: 50px;
+        margin-left: 46px;
+        text-align: center;
+        margin-bottom: 27px;
+        font-family: 'Ubuntu', sans-serif;
+        }
+        
+        form.form1 {
+            padding-top: 40px;
+        }
+        
+        .pass {
+                width: 76%;
+        color: rgb(38, 50, 56);
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 1px;
+        background: rgba(136, 126, 126, 0.04);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 20px;
+        outline: none;
+        box-sizing: border-box;
+        border: 2px solid rgba(0, 0, 0, 0.02);
+        margin-bottom: 50px;
+        margin-left: 46px;
+        text-align: center;
+        margin-bottom: 27px;
+        font-family: 'Ubuntu', sans-serif;
+        }
+        
+       
+        .un:focus, .pass:focus {
+            border: 2px solid rgba(0, 0, 0, 0.18) !important;
+            
+        }
+        
+        .submit {
+          cursor: pointer;
+            border-radius: 5em;
+            color: #fff;
+            background: linear-gradient(to right, #9C27B0, #E040FB);
+            border: 0;
+            padding-left: 40px;
+            padding-right: 40px;
+            padding-bottom: 10px;
+            padding-top: 10px;
+            font-family: 'Ubuntu', sans-serif;
+            margin-left: 35%;
+            font-size: 13px;
+            box-shadow: 0 0 20px 1px rgba(0, 0, 0, 0.04);
+        }
+        
+        .forgot {
+            text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+            color: #013f3f;
+            padding-top: 15px;
+        }
+        
+        a {
+            text-shadow: 0px 0px 3px rgba(117, 117, 117, 0.12);
+            color: #3e0b47;
+            text-decoration: none
+        }
+        
+        @media (max-width: 600px) {
+            .main {
+                border-radius: 0px;
+            }}
+            table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 70%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    </style>
+    </head>
+    <body>
+    
+    
+    
+      <div class="main">
+        <p class="sign" style="padding-left: 20px;"  align="margin-left">welcome</p>
+        search : <input type="text" id="myInput" placeholder=" search by Date..." onkeyup="search()">
+        <h2>Table</h2>
+
+        <table id ="myTable">
+          <tr>
+            <th>Doctor Name</th>
+            <th>Genration Time</th>
+            <th>Genration Date</th>
+            <th>STU</th>
+            <th>STU Time/date</th>
+            <th>Attendance Type</th>
+          </tr>
+          {%for i in data %}
+          <tr>
+            <td>{{ i[0] }}</td>
+            <td>{{ i[1] }}</td>
+            <td>{{ i[2] }}</td>
+            <td>{{ i[3] }}</td>
+            <td>{{ i[4] }}</td>
+            <td>{{ i[5] }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        
+        </div>
+    <script>
+        const search = ()=>{
+                let filter = document.getElementById("myInput").value.toUpperCase();
+                let table = document.getElementById("myTable");
+                let tr = table.getElementsByTagName("tr");
+                for(var i =0; i<tr.length;i++){
+                    let td = tr[i].getElementsByTagName("td")[2];
+                    if(td){
+                        let textValue = td.textContent || td.innerHTML;
+                        if(textValue.toLocaleUpperCase().indexOf(filter) > -1 ){
+                                tr[1].style.display = "";
+
+                        }else{
+                            tr[i].style.display = "none";
+
+                        }
+                    }
+                }
+        }
+
+
+    </script>
+    
+    
+    </body>
+    </html>
+    
